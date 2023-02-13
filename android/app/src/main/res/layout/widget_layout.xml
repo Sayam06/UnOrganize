@@ -1,0 +1,34 @@
+<FrameLayout
+  android:id="@+id/widget_root"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="349dp"
+  android:background="@drawable/rounded_corner_background"
+  android:layout_height="204dp"
+>
+  <LinearLayout
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/rounded_corner_background"
+    android:padding="16dp"
+  >
+    <TextView
+      android:id="@+id/header_text_view"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="Today's Pending Tasks"
+      android:textSize="24sp"
+      android:textStyle="bold"
+      android:textColor="@android:color/white"
+      android:layout_marginBottom="16dp"
+    />
+    
+      <TextView
+      android:id="@+id/tv_counter"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:textColor="@android:color/white"
+      android:textSize="20sp"
+    />
+  </LinearLayout>
+</FrameLayout>
