@@ -75,8 +75,8 @@ class _NewTaskScreenState extends State<NewTaskScreen> {
     );
   }
 
-  void dialog() {
-    showDialog(
+  void dialog() async {
+    await showDialog(
         context: context,
         builder: (BuildContext ctx) {
           controller.text = priority.toString();
@@ -159,6 +159,7 @@ class _NewTaskScreenState extends State<NewTaskScreen> {
                                       color: Colors.white,
                                       fontWeight: FontWeight.bold,
                                     ),
+                                    keyboardType: TextInputType.number,
                                     cursorColor: Palette.primaryColor,
                                     textAlign: TextAlign.center,
                                     controller: controller,
@@ -253,10 +254,11 @@ class _NewTaskScreenState extends State<NewTaskScreen> {
                                 )),
                             TextButton(
                                 onPressed: () {
-                                  setState(() {
-                                    priority = temp;
-                                  });
-                                  Navigator.of(context).pop();
+                                  try {
+                                    int.parse(controller.text);
+
+                                    Navigator.of(context).pop();
+                                  } catch (err) {}
                                 },
                                 style: TextButton.styleFrom(
                                   padding: EdgeInsets.all(0),
@@ -277,6 +279,9 @@ class _NewTaskScreenState extends State<NewTaskScreen> {
             );
           });
         });
+    setState(() {
+      priority = int.parse(controller.text);
+    });
   }
 
   @override
